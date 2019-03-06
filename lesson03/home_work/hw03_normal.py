@@ -10,3 +10,23 @@
 #  если скажем эти файлы потом придется передавать.
 # Так же при выводе имя должно быть полностью в верхнем регистре!
 # Подумайте вспоминая урок, как это можно сделать максимально кратко, используя возможности языка Python.
+people = ['Ivan', 'Dmitriy', 'Denis', 'Anton', 'Irina', 'Olga', 'Mark']
+money = [5000, 10000, 400000, 15000, 50000, 3000, 30000]
+
+max_salary = 50000
+tax_share = 13
+
+list1 = dict(zip(people, money))
+
+with open('salary.txt', 'w+', encoding='utf-8') as file:
+    for key, value in list1.items():
+        if value < max_salary:
+            file.write(f'{key} - {value}\n')
+    file.seek(0)
+
+with open('salary.txt', 'r+', encoding='utf-8') as file:
+    for line in file:
+        person, salary = line.split(' - ')
+        tax = int(salary)*(tax_share/100)
+        net_salary = int(salary) - int(tax)
+        print(f'{person} получил(а) зарплату в размере {net_salary}р., налог составил {tax}р.')

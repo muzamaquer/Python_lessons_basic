@@ -1,0 +1,5 @@
+Ivan - 5000
+Dmitriy - 10000
+Anton - 15000
+Olga - 3000
+Mark - 30000
